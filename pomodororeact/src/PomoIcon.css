@@ -1,0 +1,30 @@
+body{
+    align-items: center;
+    background-color: white;
+}
+
+.PomoContainer{
+    background-color: rgb(162, 200, 212);
+    text-align: center;
+    width: 300px;
+    height: 200px;
+
+   
+    top: 50%;
+    left:50%;
+    margin-top: 50%;
+    margin-left: 50%;
+}
+
+p{
+    color: black;
+}
+
+.Display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: wheat;
+}
