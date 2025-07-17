@@ -45,19 +45,31 @@ function PomoIcon() {
         setTimeRemaining(data.timeRemaining || 0);
     };
 
+
+    const resumeSession = async () => {
+        const res = await fetch('http://localhost:8080/session/status');
+        
+    }
+
     
 
     return (
-        <div className='PomoContainer'>
-            <p>Status: {status}</p>
-            <div className='Display'>
-                <p>{formatTime(timeRemaining)}</p>
-            </div>
-            <div className='ButtonContainer'>
-                <button onClick={startSession}>Start</button>
-                <button onClick={stopSession}>Stop</button>
+        <div className='OutsideBorder'>
+            
+
+            <div className='PomoContainer'>
+                <p className='StatusText'>Status: {status}</p>
+                <div className='Display'>
+                    <p>{formatTime(timeRemaining)}</p>
+                </div>
+                <div className='ButtonContainer'>
+                    <button onClick={startSession}>Start</button>
+                    <button>Reset</button>
+                    <button onClick={stopSession}>Stop</button>
+                </div>
             </div>
         </div>
+        
     );
 }
 

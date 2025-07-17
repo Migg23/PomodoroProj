@@ -1,30 +1,74 @@
 body{
-    align-items: center;
+    
     background-color: white;
+    margin: 0;
+    padding:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100hv;
+
 }
 
 .PomoContainer{
-    background-color: rgb(162, 200, 212);
+    background-color: darkgreen;
     text-align: center;
-    width: 300px;
+    width: 400px;
     height: 200px;
 
+    border-radius: 30px;
    
-    top: 50%;
-    left:50%;
-    margin-top: 50%;
-    margin-left: 50%;
+    padding:20px; 
+
+    
 }
 
 p{
-    color: black;
+    color: pink;
 }
 
 .Display{
     display: flex;
-    flex-direction: column;
+    
     justify-content: center;
     align-items: center;
     
-    background-color: wheat;
+    background-color: darkgreen;
 }
+
+
+
+.StatusText{
+    size: 30px;
+    
+}
+
+.ButtonContainer button{
+   font-size: 1.5rem;
+
+   padding: 10px 20px;
+   margin: 17px;
+
+
+
+}
+
+
+.OutsideBorder{
+    background-color: pink;
+    display: flex;
+    
+    justify-content: center;
+    align-items: start;
+    height:600px;
+    width: 500px;
+
+    padding-top: 30px;
+
+}
+
+
+.spaceDiv{
+    height: 40px;
+}
+
