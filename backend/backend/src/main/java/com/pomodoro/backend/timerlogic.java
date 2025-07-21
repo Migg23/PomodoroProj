@@ -30,7 +30,7 @@ public class timerlogic {
     }
 
 
-    @PostMapping("/session/resume")
+    @GetMapping("/session/resume")
     public Map<String ,Object> resumeSesh(){
         Map<String , Object> rep = new HashMap<>();
         long secsElapsed = Duration.between(sessionStartTime, Instant.now()).getSeconds();
@@ -61,8 +61,12 @@ public class timerlogic {
             // this is where the time should be checked for 0 and if it is break time as well as increment the sesh
 
             if(secdsRemaining == 0){
+
+                //checks if its a break or another session
                 if(!breakTime){
                     breakTime = true;
+
+                    //longer break
                     if(shesCounter == 4){
                         seshLen = Duration.ofMinutes(20);
 
@@ -71,7 +75,7 @@ public class timerlogic {
                         seshLen = Duration.ofMinutes(5);
                     }
                     shesCounter++;
-
+                    
                     if(shesCounter == 5){
                         shesCounter = 0;
                     }
@@ -94,7 +98,7 @@ public class timerlogic {
     
     @PostMapping("/session/stop")
     public Map<String , Object> stopSession(){
-        sessionStartTime = null;
+        
         return Map.of("message" , "Pomo stopped");
         
     }

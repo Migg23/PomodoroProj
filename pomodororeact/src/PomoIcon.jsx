@@ -22,6 +22,8 @@ function PomoIcon() {
         await fetch('http://localhost:8080/session/start', { method: 'POST' });
         setStatus('WORKING');
 
+
+        // the set interval allows the fetchstatus method to happen every second
         const id = setInterval(fetchStatus, 1000);
         setIntervalId(id);
     };
@@ -47,9 +49,16 @@ function PomoIcon() {
 
 
     const resumeSession = async () => {
-        const res = await fetch('http://localhost:8080/session/status');
+        const res = await fetch('http://localhost:8080/session/resume');
+        const data = await res.json();
+
+        setStatus(data.status);
+        setTimeRemaining(data.timeRemaining || 0);
+
+       const temp = setInterval(fetchStatus , 1000);
+       setIntervalId(temp);
         
-    }
+    };
 
     
 
@@ -64,7 +73,7 @@ function PomoIcon() {
                 </div>
                 <div className='ButtonContainer'>
                     <button onClick={startSession}>Start</button>
-                    <button>Reset</button>
+                    <button onClick={resumeSession}>Resume</button>
                     <button onClick={stopSession}>Stop</button>
                 </div>
             </div>
